@@ -11,18 +11,33 @@ let bmi = document.getElementById('bmi');
 let heightMetric;
 let weightMetric;
 
+// function checkInput() {
+//   if (inputHeight.value !== '' && inputWeight.value !== '') {
+//     // console.log('Inputs contains values:', inputHeight.value, inputWeight.value);
+//     results.classList.remove('hidden');
+//     results.classList.add('flex');
+//     noResults.classList.add('hidden');
+//     calcBmiMetric();
+//   } else {
+//     // console.log('Input is empty.');
+//     noResults.classList.remove('hidden');
+//     results.classList.add('hidden');
+//     results.classList.remove('flex');
+//   }
+// }
+
 function checkInput() {
-  if (inputHeight.value !== '' && inputWeight.value !== '') {
-    // console.log('Inputs contains values:', inputHeight.value, inputWeight.value);
-    results.classList.remove('hidden');
-    results.classList.add('flex');
-    noResults.classList.add('hidden');
+  if (inputHeight.value !== `` && inputWeight.value !== ``) {
+    heightMetric = parseFloat(inputHeight.value);
+    weightMetric = parseFloat(inputWeight.value);
+    results.classList.remove(`hidden`);
+    results.classList.add(`flex`);
+    noResults.classList.add(`hidden`);
     calcBmiMetric();
   } else {
-    // console.log('Input is empty.');
-    noResults.classList.remove('hidden');
-    results.classList.add('hidden');
-    results.classList.remove('flex');
+    noResults.classList.remove(`hidden`);
+    results.classList.add(`hidden`);
+    results.classList.remove(`flex`);
   }
 }
 
