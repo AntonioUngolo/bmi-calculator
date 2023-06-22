@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body:after {
+  content: '';
+  background: linear-gradient(
+    290.1deg,
+    #d6e6fe 0%,
+    rgba(214, 252, 254, 0) 100%
+  );
+  border-radius: 0px 0px 35px 35px;
+  position: absolute;
+  width: 60%;
+  height: 737px;
+  top: 0;
+  left: 24px;
+}
+
+p {
+  color: #5e6e85;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* .input-left {
+  position: relative;
+}
+
+.input-left::before {
+  content: 'cm';
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+} */
+
+/* .input-right {
+  position: relative;
+}
+
+.input-right::before {
+  content: 'kg';
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+} */

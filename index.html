@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Frontend Mentor | Body Mass Index Calculator</title>
+  </head>
+  <body class="font-inter relative">
+    <!-- Hero -->
+    <section id="hero" class="container mx-auto relative z-10 pt-16 lg:h-[90vh] mb-16">
+      <section id="navbar" class="flex justify-center md:justify-normal">
+        <img src="assets/images/logo.svg" alt="" srcset="" class="w-[42px] h-[42px] mb-7" />
+      </section>
+      <section class="grid gap-8 grid-cols-1 md:grid-cols-2 items-center">
+        <div>
+          <h1 class="text-5xl w-80 text-center mx-auto font-semibold mb-9 md:text-6xl md:text-start md:w-[74%] md:mx-0">Body Mass Index Calculator</h1>
+          <p class="text-center md:w-3/4 md:text-start">
+            Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.
+          </p>
+        </div>
+        <div id="calculator" class="p-8 grid gap-8 bg-white rounded-3xl shadow-xl">
+          <h1 class="text-blue text-2xl font-bold">Enter your details below</h1>
+          <div class="grid grid-cols-2">
+            <div class="flex gap-2 items-center">
+              <input
+                type="radio"
+                id="metric"
+                name="select-value"
+                value="metric"
+                class="relative h-7 w-7 cursor-pointer appearance-none rounded-full border border-blue-gray-200 transition-all checked:bg-blue-100 after:absolute after:content[''] after:rounded-full after:w-4 after:h-4 after:bg-indigo-500 after:top-2/4 after:left-2/4 after:-translate-y-2/4 after:-translate-x-2/4 after:opacity-0 checked:after:opacity-100 after:transition-all"
+              />
+              <label for="metric" class="font-semibold">Metric</label>
+            </div>
+            <div class="flex gap-2 items-center">
+              <input
+                type="radio"
+                id="imperial"
+                name="select-value"
+                value="imperial"
+                class="relative h-7 w-7 cursor-pointer appearance-none rounded-full border border-blue-gray-200 transition-all checked:bg-blue-100 after:absolute after:content[''] after:rounded-full after:w-4 after:h-4 after:bg-indigo-500 after:top-2/4 after:left-2/4 after:-translate-y-2/4 after:-translate-x-2/4 after:opacity-0 checked:after:opacity-100"
+              />
+              <label for="imperial" class="font-semibold">Imperial</label>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-6">
+            <div>
+              <p class="mb-2">Height</p>
+              <div class="input-left relative before:content-['cm'] before:absolute before:top-2/4 before:right-6 before:-translate-y-1/2 before:text-indigo-500 before:font-bold before:text-2xl">
+                <input type="number" id="height" name="height" class="w-full py-5 px-6 border-2 border-gray-200 rounded-2xl focus:ring-0" />
+              </div>
+            </div>
+            <div>
+              <p class="mb-2">Weight</p>
+              <div class="input-right relative before:content-['kg'] before:absolute before:top-2/4 before:right-6 before:-translate-y-1/2 before:text-indigo-500 before:font-bold before:text-2xl">
+                <input type="number" id="weight" name="weight" class="w-full py-5 px-6 border-2 border-gray-200 rounded-2xl focus:ring-0" />
+              </div>
+            </div>
+          </div>
+          <div id="results-box" class="p-8 bg-gradient-to-r from-blue-700 to-blue-600 text-white rounded-l-lg rounded-r-[100px]">
+            <div id="no-results" class="text-white">
+              <h1 class="font-bold text-2xl mb-4">Welcome!</h1>
+              <p class="text-white">Enter your height and weight and you’ll see your BMI result here</p>
+            </div>
+            <div id="results" class="hidden">
+              <div class="flex-initial w-1/3">
+                <p class="text-white font-bold">Your BMI is...</p>
+                <p id="bmi" class="text-white text-5xl font-semibold">0.00</p>
+              </div>
+              <p class="text-white flex-initial w-2/3">
+                Your BMI suggests you’re a healthy weight. Your ideal weight is between
+                <span class="font-bold">63.3kgs - 85.2kgs</span>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <!-- What results Means -->
+    <section class="container mx-auto grid gap-12 md:gap-32 grid-cols-1 md:grid-cols-2 items-end mb-16">
+      <img src="assets/images/image-man-eating.webp" alt="" />
+      <div class="mb-5">
+        <h1 class="text-5xl font-bold mb-9">What your BMI result means</h1>
+        <p>
+          A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a healthy weight may lower your chances of experiencing health issues later on, such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced fat and sugar content, incorporating ample fruits and
+          vegetables. Additionally, strive for regular physical activity, ideally about 30 minutes daily for five days a week.
+        </p>
+      </div>
+    </section>
+    <!-- How to -->
+    <section class="bg-gradient-to-r from-transparent to-sky-50 rounded-3xl mx-6 mb-32">
+      <div class="container mx-auto grid gap-10 md:gap-8 md:grid-cols-3 items-center pt-16 pb-24">
+        <div>
+          <img src="/assets/images/icon-eating.svg" alt="" class="mb-8 md:mb-11" />
+          <h5 class="font-bold text-2xl mb-6">Healthy eating</h5>
+          <p>Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.</p>
+        </div>
+        <div>
+          <img src="/assets/images/icon-exercise.svg" alt="" class="mb-8 md:mb-11" />
+          <h5 class="font-bold text-2xl mb-6">Regular exercise</h5>
+          <p>Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity.</p>
+        </div>
+        <div>
+          <img src="/assets/images/icon-sleep.svg" alt="" class="mb-8 md:mb-11" />
+          <h5 class="font-bold text-2xl mb-6">Adequate sleep</h5>
+          <p>Sleep enhances mental clarity, emotional stability, and physical wellness, promoting overall restoration and rejuvenation.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Limitations -->
+    <section class="container mx-auto mb-32">
+      <!-- First row -->
+      <div class="grid gap-8 grid-cols-12 mb-8">
+        <div class="text-center col-start-1 col-span-12 md:col-span-6 md:text-start">
+          <h2 class="text-4xl md:text-5xl font-bold mb-9">Limitations of BMI</h2>
+          <p>Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.</p>
+        </div>
+        <div class="col-start-1 col-span-12 md:col-end-12 md:col-span-4 mx-auto p-8 shadow-xl rounded-2xl">
+          <div class="flex items-center">
+            <img src="/assets/images/icon-gender.svg" alt="" />
+            <p class="font-bold">Gender</p>
+          </div>
+          <p>The development and body fat composition of girls and boys vary with age. Consequently, a child's age and gender are considered when evaluating their BMI.</p>
+        </div>
+      </div>
+      <!-- Second row -->
+      <div class="grid gap-8 grid-cols-12 mb-6">
+        <div class="col-start-1 col-span-12 md:col-end-9 md:col-span-4 p-8 shadow-xl rounded-2xl">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/assets/images/icon-age.svg" alt="" />
+            <p class="font-bold">Age</p>
+          </div>
+          <p>In aging individuals, increased body fat and muscle loss may cause BMI to underestimate body fat content.</p>
+        </div>
+        <div class="col-start-1 col-span-12 md:col-end-13 md:col-span-4 p-8 shadow-xl rounded-2xl">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/assets/images/icon-muscle.svg" alt="" />
+            <p class="font-bold">Muscle</p>
+          </div>
+          <p>BMI may misclassify muscular individuals as overweight or obese, as it doesn't differentiate muscle from fat.</p>
+        </div>
+      </div>
+      <!-- Third Row -->
+      <div class="grid gap-8 grid-cols-12">
+        <div class="col-start-1 col-span-12 md:col-start-3 md:col-span-4 p-8 shadow-xl rounded-2xl">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/assets/images/icon-pregnancy.svg" alt="" />
+            <p class="font-bold">Pregnancy</p>
+          </div>
+          <p>In aging individuals, increased body fat and muscle loss may cause BMI to underestimate body fat content.</p>
+        </div>
+        <div class="col-start-1 col-span-12 md:col-start-7 md:col-span-4 p-8 shadow-xl rounded-2xl">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/assets/images/icon-race.svg" alt="" />
+            <p class="font-bold">Race</p>
+          </div>
+          <p>BMI may misclassify muscular individuals as overweight or obese, as it doesn't differentiate muscle from fat.</p>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
