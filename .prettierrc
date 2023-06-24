@@ -7,8 +7,7 @@
         "tabWidth": 2,
         "htmlWhitespaceSensitivity": "ignore",
         "singleAttributePerLine": false,
-        "printWidth": 300,
-        "proseWrap": "preserve"
+        "printWidth": 300
       }
     }
   ]

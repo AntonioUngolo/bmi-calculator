@@ -20,7 +20,7 @@ let heightInInches;
 
 const noResults = document.getElementById('no-results');
 const results = document.getElementById('results');
-let bmi = document.getElementById('bmi');
+let bmiResult = document.getElementById('bmi');
 
 function checkUnits() {
   radioMetric.addEventListener('click', function () {
@@ -28,6 +28,7 @@ function checkUnits() {
       console.log('Metric Units');
       metricUnits.classList.remove('hidden');
       imperialUnits.classList.add('hidden');
+      calcBmiMetric();
     }
   });
 
@@ -36,35 +37,28 @@ function checkUnits() {
       console.log('Imperial Units');
       metricUnits.classList.add('hidden');
       imperialUnits.classList.remove('hidden');
+      calcBmiImperial();
     }
   });
 }
 checkUnits();
 
-function calcBmiImperial() {
-  weightInPounds = Number(stValue.value * 14 + lbsValue.value);
-  heightInInches = Number(ftValue.value * 12 + inValue.value);
-  const bmi = (weightInPounds / (heightInInches * heightInInches)) * 703;
-  console.log(bmi);
+function calcBmiMetric() {
+  heightMetric = heightMetric / 100;
+  const BMI = weightMetric / (heightMetric * heightMetric);
+  console.log(BMI.toFixed(2));
+  return (bmiResult.textContent = BMI.toFixed(2));
 }
 
-ftValue.addEventListener('blur', function () {
-  calcBmiImperial();
-});
+function calcBmiImperial() {
+  weightInPounds = Number(lbsValue.value);
+  heightInInches = parseInt(ftValue.value * 12) + parseInt(inValue.value);
+  const bmi = (weightInPounds / (heightInInches * heightInInches)) * 703;
+  console.log(bmi.toFixed(2));
+  return (bmiResult.textContent = bmi.toFixed(2));
+}
 
-inValue.addEventListener('blur', function () {
-  calcBmiImperial();
-});
-stValue.addEventListener('blur', function () {
-  calcBmiImperial();
-});
-lbsValue.addEventListener('blur', function () {
-  calcBmiImperial();
-});
-
-calcBmiImperial();
-
-function checkInput() {
+function checkInputMetric() {
   if (inputHeight.value !== '' && inputWeight.value !== '') {
     heightMetric = Number(inputHeight.value);
     weightMetric = Number(inputWeight.value);
@@ -79,17 +73,34 @@ function checkInput() {
   }
 }
 
-function calcBmiMetric() {
-  heightMetric = heightMetric / 100;
-  const BMI = weightMetric / (heightMetric * heightMetric);
-  console.log(BMI.toFixed(2));
-  return (bmi.textContent = BMI.toFixed(2));
+ftValue.addEventListener('blur', function () {
+  checkInputImperial();
+});
+
+inValue.addEventListener('blur', function () {
+  checkInputImperial();
+});
+lbsValue.addEventListener('blur', function () {
+  checkInputImperial();
+});
+
+function checkInputImperial() {
+  if (ftValue.value !== '' && inValue.value !== '' && lbsValue.value !== '') {
+    results.classList.remove(`hidden`);
+    results.classList.add(`flex`);
+    noResults.classList.add(`hidden`);
+    calcBmiImperial();
+  } else {
+    noResults.classList.remove(`hidden`);
+    results.classList.add(`hidden`);
+    results.classList.remove(`flex`);
+  }
 }
 
 inputHeight.addEventListener('blur', function () {
-  checkInput();
+  checkInputMetric();
 });
 
 inputWeight.addEventListener('blur', function () {
-  checkInput();
+  checkInputMetric();
 });
