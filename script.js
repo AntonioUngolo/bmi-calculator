@@ -22,6 +22,8 @@ const noResults = document.getElementById('no-results');
 const results = document.getElementById('results');
 let bmiResult = document.getElementById('bmi');
 
+const weightResults = document.getElementById('weight');
+
 function checkUnits() {
   radioMetric.addEventListener('click', function () {
     if (this.checked) {
@@ -41,6 +43,7 @@ function checkUnits() {
     }
   });
 }
+
 checkUnits();
 
 function calcBmiMetric() {
@@ -56,6 +59,17 @@ function calcBmiImperial() {
   const bmi = (weightInPounds / (heightInInches * heightInInches)) * 703;
   console.log(bmi.toFixed(2));
   return (bmiResult.textContent = bmi.toFixed(2));
+}
+
+function checkResults() {
+  console.log('check results working');
+  bmiResult = bmiResult;
+  console.log(parseFloat(bmiResult.textContent));
+  if (parseFloat(bmiResult.textContent) < 18.5) {
+    weightResults.textContent = 'Underweight';
+  } else {
+    weightResults.textContent = 'Normal';
+  }
 }
 
 function checkInputMetric() {
@@ -99,8 +113,10 @@ function checkInputImperial() {
 
 inputHeight.addEventListener('blur', function () {
   checkInputMetric();
+  checkResults();
 });
 
 inputWeight.addEventListener('blur', function () {
   checkInputMetric();
+  checkResults();
 });
