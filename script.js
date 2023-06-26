@@ -22,7 +22,7 @@ const noResults = document.getElementById('no-results');
 const results = document.getElementById('results');
 let bmiResult = document.getElementById('bmi');
 
-const weightResults = document.getElementById('weight');
+const weightResults = document.getElementById('weight-result');
 
 function checkUnits() {
   radioMetric.addEventListener('click', function () {
@@ -67,8 +67,12 @@ function checkResults() {
   console.log(parseFloat(bmiResult.textContent));
   if (parseFloat(bmiResult.textContent) < 18.5) {
     weightResults.textContent = 'Underweight';
-  } else {
-    weightResults.textContent = 'Normal';
+  } else if (parseFloat(bmiResult.textContent) > 18.5 && parseFloat(bmiResult.textContent) < 24.9) {
+    weightResults.textContent = 'Healthy weight';
+  } else if (parseFloat(bmiResult.textContent) > 25 && parseFloat(bmiResult.textContent) < 29.9) {
+    weightResults.textContent = 'Overweight';
+  } else if (parseFloat(bmiResult.textContent) > 30) {
+    weightResults.textContent = 'Obese';
   }
 }
 
@@ -94,6 +98,7 @@ ftValue.addEventListener('blur', function () {
 inValue.addEventListener('blur', function () {
   checkInputImperial();
 });
+
 lbsValue.addEventListener('blur', function () {
   checkInputImperial();
 });
